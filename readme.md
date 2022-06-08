@@ -110,7 +110,6 @@ Config.CustomColors = {
 
 ### `Exports CreateDialog :`
 - Now you can set a delay to create an automatic cancellation of the modal if the player take too much time to answer.
-- Now you can set a custom color (border, background and text color) from the config.lua.
 
 ### `LUA file :`
 - Adding a config file.
