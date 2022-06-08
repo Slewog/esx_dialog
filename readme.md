@@ -11,6 +11,7 @@ It's little ui to open a dialog box and ask the player to confirm or cancel the 
 - Only from client side with exports.</br>
 - Support icon from font awesome or bootsrap.</br>
 - call with an exports.</br>
+- If several scripts send a modal, they will each appear in turn.</br>
 
 Arguments (send all data in a table):
 * **icon**: string | Dialog title icon (can be set to nil or '' if you don't want an icon in your title).
