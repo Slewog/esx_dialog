@@ -49,18 +49,3 @@ local function CreateDialog(value)
 end
 
 exports("CreateDialog", CreateDialog)
-
-RegisterCommand('dialog', function ()
-    local accepted = exports['esx_dialog']:CreateDialog({
-        icon = 'fas fa-car',
-        title = 'Premium Motorsport - Buy a car',
-        content = 'Do you want buy this Benefactor Schafter V12 for 25.0000$ ?',
-        delay = false, -- Automatic cancellation after 5000 ms.
-    })
-
-    if accepted then
-        exports["esx_notify"]:Notify("info", 3000, "You are now the owner of this Benefactor Schafter V12 !")
-    else
-        exports["esx_notify"]:Notify("info", 3000, "Too bad it will be for another time, have a nice day !")
-    end
-end)
