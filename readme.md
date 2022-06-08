@@ -41,13 +41,13 @@ Config.CustomColors = {
 ```
 </br>
 
-### Example :
 ### Arguments (sended in a table):
 * **icon**: Font Awesome or Boostrap | Modal title icon (can be set to nil or '' if you don't want an icon in your title).
 * **title**: string | Modal title.
 * **content**: string | Modal message.
 * **delay**: milli second or false | Add or not an automatic cancellation delay.
 
+### Example :
 - `With automatic cancellation`:
 ```lua
     local accepted = exports['esx_dialog']:CreateDialog({
