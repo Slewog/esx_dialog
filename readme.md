@@ -117,7 +117,6 @@ Config.CustomColors = {
 - "client.lua" : Increase wait time to show a modal if one is currently showed.
 - Now from the config.lua you can activate or desactivate the modal sound.
 - Now from the config.lua you can set the volume of modal sound.
-- Now from the config.lua you can set the volume of modal sound.
 - Now from the config.lua you can the modal colors (border, background and text color).
 
 ### `Java Script file :`
