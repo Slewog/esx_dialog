@@ -41,3 +41,4 @@ Example:
 - Make ui responsive.
 - Cancel the modal if the player does not respond (define the delay via parameter).
 - Maybe add a little sound when the modal fade in.
+- Add option to change color without open the css file.
