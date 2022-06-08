@@ -9,7 +9,7 @@ Config.Sound = {
 Config.CustomColors = {
     primary = { -- Border and icons color | default value =  rgb(34, 132, 189).
         change = false,
-        value = 'rgb(34, 132, 189)'
+        value = 'rgb(50, 255, 0)'
     },
     textColor = { -- Text color | #ffffff by default on the css.
         change = false,
