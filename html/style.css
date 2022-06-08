@@ -1,6 +1,6 @@
 .modal {
-    --secondary: rgb(34, 132, 189);
-    --primary: #fff;
+    --primary: rgb(34, 132, 189);
+    --textColor: #fff;
     --bgColor: rgba(5, 5, 5, 0.85);
     --titleSize: 18px;
     --textSize: 16px;
@@ -25,10 +25,10 @@
 .modal-content {
     width: 400px;
     background-color: var(--bgColor);
-    color: var(--primary);
+    color: var(--textColor);
     transition: all 0.35s ease-in-out;
     transform: translateY(-360px);
-    border: 2px solid var(--secondary); 
+    border: 2px solid var(--primary); 
     border-radius: 10px;
     text-align: center;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, .5);
@@ -54,14 +54,14 @@
 }
 
 .modal-title i {
-    color: var(--secondary);
+    color: var(--primary);
     margin-right: 10px;
 }
   
 .modal-body {
     font-size: var(--textSize);
     margin: 0 10px;
-    border-top: 1px solid var(--secondary);
+    border-top: 1px solid var(--primary);
 }
 
 .modal-footer {
@@ -76,20 +76,20 @@
     font-family: var(--fontText);
     font-weight: 500;
     background-color: transparent;
-    color: var(--primary);
-    border: 1px solid var(--secondary);
+    color: var(--textColor);
+    border: 1px solid var(--primary);
     border-radius: 7px;
     padding: 10px;
 }
 
 .modal-footer button:hover {
     text-decoration: underline;
-    text-decoration-color: var(--secondary);
+    text-decoration-color: var(--primary);
     text-underline-offset: 3px;
-    box-shadow:  0px 0px 10px var(--secondary);
+    box-shadow:  0px 0px 10px var(--primary);
 }
 
 button i {
-    color: var(--secondary);
+    color: var(--primary);
     margin-right: 5px;
 }

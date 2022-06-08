@@ -1,10 +1,15 @@
-var modalIsShowed = false;
-var modalState = '';
+let modalIsShowed = false;
+let modalState = '';
+let modalPlaySound = true;
+
 const modal = document.querySelector(".modal");
 const modalTitle = document.querySelector(".modal-title");
 const modalText = document.querySelector(".content-modal");
 
-function listenTransition(e) {
+const sound = new Audio('modal.ogg');
+sound.volume = 1.0;
+
+function listenModalTransition(e) {
     switch (e.type) {
         case "transitionend":
             if (e.propertyName == 'transform') {
@@ -13,9 +18,9 @@ function listenTransition(e) {
                 } else {
                     modalTitle.innerHTML = '';
                     modalText.innerHTML = '';
-                    modal.removeEventListener("transitionend", listenTransition, false);
+                    modal.removeEventListener("transitionend", listenModalTransition, false);
 
-                    $.post(`https://esx_dialog/return-action`, JSON.stringify({result: modalState}));
+                    $.post(`https://esx_dialog/modal-callback`, JSON.stringify({result: modalState}));
                     modalState = '';
                     modalIsShowed = false;
                 }
@@ -26,40 +31,58 @@ function listenTransition(e) {
 
 function openModal(data) {
     if (!modalIsShowed) {
-        modalTitle.innerHTML = '<i class="'.concat(data.icon, '"></i>', data.title);
+        modalTitle.innerHTML = `<i class="${data.icon}"></i>${data.title}`
         modalText.innerHTML = data.content;
 
-        modal.classList.toggle("enter-done");
-        modal.addEventListener("transitionend", listenTransition, false);
+        modal.classList.add("enter-done");
+        modal.addEventListener("transitionend", listenModalTransition, false);
+
+        if (modalPlaySound) {
+            sound.play();
+        }
+
+        if (data.delay != undefined && data.delay && typeof(data.delay) == 'number') {
+            setTimeout(function(){
+                if (modalIsShowed) {
+                    modalAction('canceled');
+                }
+            }, data.delay);
+        }
     }
 }
 
-function confirmModal() {
+function modalAction(action) {
     if (modalIsShowed) {
-        modalState = 'confirmed';
-        modal.classList.toggle("enter-done");
-    }
-}
-
-function cancelModal() {
-    if (modalIsShowed) {
-        modalState = 'declined';
-        modal.classList.toggle("enter-done");
+        modalState = action;
+        modal.classList.remove("enter-done");
     }
 }
 
 $(function() {
-    window.addEventListener('message', function (event) {
-        var action = event.data.action;
+    $.post('http://esx_dialog/get-config', JSON.stringify({}), function(data){
+        modalPlaySound = data.Sound.play;
+        sound.volume = data.Sound.volume;
 
-        if (action == "open") {
-            var modalInfo = event.data.info;
-            
-            openModal({
-                'icon': modalInfo.icon,
-                'title': modalInfo.title,
-                'content': modalInfo.content
-            });
+        let newColor = data.CustomColors
+
+        if (newColor.primary.change) {
+            modal.style.setProperty('--primary', newColor.primary.value);
+        }
+
+        if (newColor.textColor.change) {
+            modal.style.setProperty('--textColor', newColor.textColor.value);
+        }
+
+        if (newColor.bgColor.change) {
+            modal.style.setProperty('--bgColor', newColor.bgColor.value);
+        }
+    });
+
+    window.addEventListener('message', function (e) {
+        var action = e.data.action;
+
+        if (action == "open-modal") {
+            openModal(e.data.info);
         }
     });
 });
