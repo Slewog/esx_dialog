@@ -2,4 +2,4 @@
 
 ## Description 
 It's little ui to open a dialog box and ask the player to confirm or cancel the action.</br>
-![image](https://imgur.com/gallery/tlsRGqY)
+![Imgur](https://imgur.com/ZuChElL)
