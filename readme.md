@@ -25,7 +25,7 @@ Config.CustomColors = {
     -- Modal Border and Icons.
     primary = { -- This color will be changed when loading the script ! 
         change = true,
-        value = 'rgb(34, 132, 189)'
+        value = 'rgb(50, 255, 0)'
     },
     -- Modal Text.
     textColor = { -- This color will not be changed when loading the script !
