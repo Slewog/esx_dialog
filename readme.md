@@ -1,12 +1,13 @@
 <h1 align='center'>ESX Dialog</a></h1><p align='center'><b>
 
 
----
+
 ## Description  (**Fully Standalone**)
 It's little ui to open a dialog box and ask the player to confirm or cancel the action (is asynchronous).</br>
 </br>
 ![Imgur](https://imgur.com/ZuChElL.png)
 
+---
 ### Usage :
 - Only from client side with exports.</br>
 - Support icon from font awesome or bootsrap.</br>
