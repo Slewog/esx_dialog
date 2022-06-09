@@ -2,11 +2,12 @@
     --primary: rgb(34, 132, 189);
     --textColor: #fff;
     --bgColor: rgba(5, 5, 5, 0.85);
-    --titleSize: 18px;
-    --textSize: 16px;
-    --btnTxtSize: 16px;
+    --modalWidth: 20.83vw ; /* 400px; */
+    --titleSize: 0.93vw; /* 18px; */
+    --textSize: 0.83vw; /* 16px; */
+    --btnTxtSize: 0.83vw; /* 16px; */
     --fontText: 'Roboto', sans-serif;
-
+    
     position: fixed;
     left: 0;
     top: 0;
@@ -23,7 +24,7 @@
 }
    
 .modal-content {
-    width: 400px;
+    width: var(--modalWidth);
     background-color: var(--bgColor);
     color: var(--textColor);
     transition: all 0.35s ease-in-out;
@@ -65,10 +66,9 @@
 }
 
 .modal-footer {
-    margin: 0px 55px;
-    padding: 0px 40px 15px 40px;
+    padding-bottom: 15px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 .modal-footer button {
@@ -80,6 +80,7 @@
     border: 1px solid var(--primary);
     border-radius: 7px;
     padding: 10px;
+    margin: 0px 15px 0px 15px;
 }
 
 .modal-footer button:hover {

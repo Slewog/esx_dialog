@@ -3,7 +3,11 @@ local Promise, ModalIsActive, UIReady = nil, false, false
 RegisterNUICallback("get-config", function(data, cb)
     UIReady = true
 
-    cb({Sound = Config.Sound, CustomColors = Config.CustomColors})
+    cb({
+        Sound = Config.Sound,
+        Colors = Config.Colors,
+        Button = Config.Button
+    })
 end)
 
 RegisterNUICallback("modal-callback", function(data, cb)

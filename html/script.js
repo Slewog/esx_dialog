@@ -1,12 +1,12 @@
+const modal = document.querySelector(".modal");
+const modalTitle = document.querySelector(".modal-title");
+const modalText = document.querySelector(".content-modal");
+const sound = new Audio('modal.ogg');
+
 let modalIsShowed = false;
 let modalState = '';
 let modalPlaySound = true;
 
-const modal = document.querySelector(".modal");
-const modalTitle = document.querySelector(".modal-title");
-const modalText = document.querySelector(".content-modal");
-
-const sound = new Audio('modal.ogg');
 sound.volume = 1.0;
 
 function listenModalTransition(e) {
@@ -58,24 +58,32 @@ function modalAction(action) {
     }
 }
 
+function configModal(color, btn) {
+    let btnConfirm = document.querySelector("#confirm-modal");
+    let btnCancel = document.querySelector("#cancel-modal");
+
+    btnConfirm.innerHTML = `<i class="fa-solid fa-check"></i><span>${btn.confirm}</span>`;
+    btnCancel.innerHTML = `<i class="fa-solid fa-xmark"></i><span>${btn.cancel}</span>`;
+
+    if (color.primary.change) {
+        modal.style.setProperty('--primary', color.primary.value);
+    }
+
+    if (color.textColor.change) {
+        modal.style.setProperty('--textColor', color.textColor.value);
+    }
+
+    if (color.bgColor.change) {
+        modal.style.setProperty('--bgColor', color.bgColor.value);
+    }
+}
+
 $(function() {
     $.post('http://esx_dialog/get-config', JSON.stringify({}), function(data){
         modalPlaySound = data.Sound.play;
         sound.volume = data.Sound.volume;
 
-        let newColor = data.CustomColors
-
-        if (newColor.primary.change) {
-            modal.style.setProperty('--primary', newColor.primary.value);
-        }
-
-        if (newColor.textColor.change) {
-            modal.style.setProperty('--textColor', newColor.textColor.value);
-        }
-
-        if (newColor.bgColor.change) {
-            modal.style.setProperty('--bgColor', newColor.bgColor.value);
-        }
+        configModal(data.Colors, data.Button);
     });
 
     window.addEventListener('message', function (e) {

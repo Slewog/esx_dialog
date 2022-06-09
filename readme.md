@@ -21,11 +21,17 @@ Config.Sound = {
     volume = 0.8 -- from 0.0 to 1.0 | Change the volume.
 }
 
+-- Set the text of every button.
+Config.Button = {
+    confirm = 'Confirm',
+    cancel = 'Decline'
+}
+
 Config.CustomColors = {
     -- Modal Border and Icons.
     primary = { -- This color will be changed when loading the script ! 
         change = true,
-        value = 'rgb(50, 255, 0)'
+        value = 'rgb(34, 132, 189)'
     },
     -- Modal Text.
     textColor = { -- This color will not be changed when loading the script !
@@ -41,13 +47,13 @@ Config.CustomColors = {
 ```
 </br>
 
+### Example :
 ### Arguments (sended in a table):
 * **icon**: Font Awesome or Boostrap | Modal title icon (can be set to nil or '' if you don't want an icon in your title).
 * **title**: string | Modal title.
 * **content**: string | Modal message.
 * **delay**: milli second or false | Add or not an automatic cancellation delay.
 
-### Example :
 - `With automatic cancellation`:
 ```lua
     local accepted = exports['esx_dialog']:CreateDialog({
@@ -119,7 +125,7 @@ Config.CustomColors = {
 - Now from the config.lua you can the modal colors (border, background and text color).
 
 ### `Java Script file :`
-- Changed the way the modal transition class is added from .toggle() to .add() or .remove().
+- Changed the way the modal transition class is added from .toggle() to .add() and .remove().
 - Changing the way to concatenate a string from "".concat() to `${}`.
 - Changing the way of declaring variables from "var" to "let".
 - Optimization of some functions.
@@ -127,11 +133,19 @@ Config.CustomColors = {
 - Load some settings from config.lua (sound option and modal colors) with an NUICallback .
 </br></br>
 
+### 1.1.1:
+
+### `CSS file :`
+- Fix space between button (look bad if label is too long).
+- Now the dialog box is responsive, using vw and not px to fix the width and font size (first try maybe need some adjustements, tried from 720px to 1440px).
+
+### `LUA file :`
+- Now from the config.lua you can set the label of  the buttons.
+</br></br>
+
 ---
 ## To do :
-- Make ui responsive (if some one can explain to me how do that, send me a dm on discord: Slewog#1883 ).
 - Try to can use between players.
 - Create a dialog box to create an invoice and send it.
 - Create a dialog to make a report (not sure, i need to see how make a good system).
-- Add option to change label and icons of every button from config.lua.
 - Found a solution to close the modal when a player relog with a modal opened (like when we you use multicharacter scripts but without making it dependent on a framework).
