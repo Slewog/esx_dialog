@@ -130,5 +130,8 @@ Config.CustomColors = {
 ---
 ## To do :
 - Make ui responsive (if some one can explain to me how do that, send me a dm on discord: Slewog#1883 ).
-- Add option to change all colors without open the css file.
+- Try to can use between players.
+- Create a dialog box to create an invoice and send it.
+- Create a dialog to make a report (not sure, i need to see how make a good system).
+- Add option to change label and icons of every button from config.lua.
 - Found a solution to close the modal when a player relog with a modal opened (like when we you use multicharacter scripts but without making it dependent on a framework).
