@@ -141,6 +141,9 @@ Config.CustomColors = {
 
 ### `LUA file :`
 - Now from the config.lua you can set the label of  the buttons.
+
+### `Java Script file :`
+- Re-write some lines.
 </br></br>
 
 ---
