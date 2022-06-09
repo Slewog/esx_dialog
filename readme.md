@@ -143,6 +143,9 @@ Config.CustomColors = {
 - Now from the config.lua you can set the label of  the buttons.
 </br></br>
 
+### `Java Script file :`
+- Re-write some lines.
+
 ---
 ## To do :
 - Try to can use between players.
