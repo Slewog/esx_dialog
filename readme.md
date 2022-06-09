@@ -146,6 +146,9 @@ Config.CustomColors = {
 - Re-write some lines.
 </br></br>
 
+### `Java Script file :`
+- Re-write some lines.
+
 ---
 ## To do :
 - Try to can use between players.
